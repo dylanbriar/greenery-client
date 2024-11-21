@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+function handleButton (){
+  fetch('http://localhost:3000')
+  .then(data => data.json())
+  .then(data => console.log(data))
+}
+
 </script>
 
 <template>
@@ -13,6 +20,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <button @click="handleButton">press me</button>
       </nav>
     </div>
   </header>
